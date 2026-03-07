@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: vibe-tutor-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: starter # $7/mo, always-on (no cold starts)
+    region: ohio # US East — close to user
+    healthCheckPath: /api/health
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false # Set manually in Render dashboard
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: NODE_ENV
+        value: production
