@@ -421,20 +421,58 @@ app.get('/privacy', (req, res) => {
   res.send(`<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Vibe Tutor - Privacy Policy</title>
-<style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:720px;margin:0 auto;padding:24px;line-height:1.6;color:#333}h1{color:#1a1a2e;border-bottom:2px solid #0c7b93;padding-bottom:8px}h2{color:#0c7b93;margin-top:32px}.updated{color:#666;font-style:italic}ul{padding-left:20px}li{margin:4px 0}</style></head><body>
+<style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:760px;margin:0 auto;padding:24px;line-height:1.65;color:#2b2b2b}h1{color:#1a1a2e;border-bottom:2px solid #0c7b93;padding-bottom:8px}h2{color:#0c7b93;margin-top:32px}.updated{color:#666;font-style:italic}.summary{background:#f3f8fa;border-left:4px solid #0c7b93;padding:12px 16px}ul{padding-left:22px}li{margin:8px 0}a{color:#086779}</style></head><body>
 <h1>Vibe Tutor — Privacy Policy</h1>
-<p class="updated">Last updated: February 26, 2026</p>
-<h2>Overview</h2><p>Vibe Tutor is a personalized AI-powered learning assistant designed for students ages 13 and older, including neurodivergent learners (ADHD, Autism Spectrum, and ODD support). We take user privacy seriously.</p>
-<h2>Data We Collect</h2><ul><li><strong>Chat Messages:</strong> Processed in real-time for educational responses. <strong>Not stored permanently</strong> on our backend.</li><li><strong>Session Tokens:</strong> Temporary, anonymous tokens used for API sessions.</li><li><strong>Analytics Events:</strong> Lightweight, pseudonymous usage data to improve reliability and learning experience quality. No PII is required.</li></ul>
-<h2>Data We Do NOT Collect</h2><ul><li>Names, emails, or account credentials</li><li>Location data</li><li>Photos, videos, or device files</li><li>We do not sell personal data</li></ul>
-<h2>AI Processing</h2><p>Chat messages are sent to Google Gemini (primary) or OpenRouter (fallback) for educational responses. We do not permanently store chat content on our backend. Third-party AI providers may process and retain request data according to their own policies.</p>
-<h2>Content Safety</h2><p>All AI responses pass through content filtering to ensure child-appropriate content. Inappropriate language, violence, and adult content are blocked.</p>
-<h2>Data Storage</h2><ul><li><strong>On-device:</strong> Progress, preferences, and token balances are stored locally. This data never leaves the device.</li><li><strong>Server-side:</strong> No long-term personal profile is maintained. Sessions are ephemeral, and limited pseudonymous operational logs may be retained for reliability.</li></ul>
-<h2>Age Scope</h2><p>Vibe Tutor is intended for users ages 13 and older and is not directed to children under 13. No account creation is required, and parent settings are PIN-protected.</p>
-<h2>Data Deletion</h2><p>You can clear local data in-app from Settings → Data Management → Clear All Data.</p>
-<h2>Security</h2><p>All communication is encrypted via HTTPS/TLS. Rate limiting and content filtering protect against misuse.</p>
-<h2>Changes</h2><p>This policy may be updated. The "Last updated" date will reflect changes.</p>
-<h2>Contact</h2><p>Questions? Email: <strong>freshwaterbruce2@gmail.com</strong></p>
+<p class="updated">Effective September 5, 2026</p>
+
+<div class="summary"><strong>What parents and teens should know first:</strong> Vibe Tutor is homework help for teens ages 13–17 in the United States. It is available on Google Play for a one-time price of $2.99. It has no ads, subscription, or in-app purchases. Tutor and Buddy use third-party AI services, so do not enter information you would not want sent to an AI provider.</div>
+
+<h2>Scope and accounts</h2>
+<p>This policy explains how Vibe Tutor and its backend service handle information. Vibe Tutor does not require a Vibe Tutor account, and the backend does not maintain a long-term personal profile for each learner. The service is not directed to children under 13.</p>
+
+<h2>AI processing</h2>
+<p>When you use Tutor or Buddy, the message text and conversation context supplied with the request are sent through our backend to Google Gemini, our primary AI provider. If Gemini is unavailable, the backend may send the same request to OpenRouter as a fallback. The provider's response is returned to the app.</p>
+<p>The backend does not write chat conversations to its own conversation-history database. Google and OpenRouter may process or retain requests under their own terms and privacy practices. Avoid entering names, contact details, health information, passwords, or other sensitive information in AI chats.</p>
+
+<h2>Information handled by the backend</h2>
+<ul>
+  <li><strong>Chat requests:</strong> Message text, system instructions, and conversation context needed to generate a response.</li>
+  <li><strong>Temporary sessions:</strong> A random session token and request counters are held in server memory. Sessions expire after about 30 minutes and are not a permanent account or profile.</li>
+  <li><strong>Network information:</strong> The service uses the requesting IP address in memory for rate limiting. Our hosting provider may also process IP addresses, request times, user-agent details, and similar infrastructure logs.</li>
+  <li><strong>Operational analytics:</strong> The app may submit an event name and event data. The backend writes the timestamp, the first eight characters of the session token, the event name, and the submitted event data to a daily log file. These events are intended for reliability and product improvement, not advertising. Because the event payload comes from the app, information included in that payload could appear in the operational log.</li>
+</ul>
+
+<h2>Retention</h2>
+<p>Chat content is processed for the response and is not intentionally saved by this backend as chat history. Temporary session records are kept in memory for about 30 minutes. Operational analytics files may remain on the running service's filesystem for the life of that service instance; we do not promise a fixed deletion time for those files. Hosting and AI providers may keep their own service or security records under their policies.</p>
+
+<h2>On-device data and voice</h2>
+<p>Study data, preferences, and chat history may be stored locally by the app. Clearing the app's data or uninstalling it removes the app's local copy, subject to Android or device backup settings. If you choose voice input, your device or speech service converts audio to transcript text. Vibe Tutor sends the resulting text to the backend for the feature you selected; this backend does not receive microphone audio through the chat endpoint.</p>
+
+<h2>Google Play</h2>
+<p>Google Play processes the purchase and may perform licensing or integrity checks under Google's privacy practices. The current Vibe Tutor backend does not receive or store your Google Play payment-card details.</p>
+
+<h2>Safety filtering</h2>
+<p>The backend checks the latest user message and the generated response with automated content filters. Gemini also applies its configured safety controls. These measures reduce risk but cannot guarantee that every response will be accurate, appropriate, or error-free. A parent or guardian should review important educational, health, or safety information.</p>
+
+<h2>Sharing and business practices</h2>
+<p>We use service providers as needed to operate the features you choose, including our hosting provider, Google Gemini, OpenRouter, Google Play, and any device or speech service used for optional voice input. We do not sell personal information, serve targeted advertising, or use chat content to build advertising profiles.</p>
+
+<h2>Your choices</h2>
+<ul>
+  <li>You may avoid the optional AI and voice features.</li>
+  <li>You may clear local app data or uninstall the app.</li>
+  <li>You may contact us with a privacy question or request. Because the backend does not use named accounts, we may not be able to identify a particular pseudonymous session or log entry without enough information to locate it.</li>
+</ul>
+
+<h2>Security</h2>
+<p>The production service uses HTTPS/TLS in transit and applies random session tokens, rate limits, and content filtering. No system can guarantee absolute security.</p>
+
+<h2>Changes</h2>
+<p>We may update this policy when the app, providers, pricing, or data practices change. The effective date above will show the latest revision.</p>
+
+<h2>Contact</h2>
+<p>Privacy questions: <strong><a href="mailto:support@vibe-tech.org">support@vibe-tech.org</a></strong></p>
+<p>Vibe Tech LLC</p>
 </body></html>`);
 });
 
